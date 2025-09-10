@@ -6,5 +6,30 @@
   </head>
   <body>
     <h1>Hello Cloudflare Pages!</h1>
+    <ul class="">
+      <li class=""><img src="assets/img/img1.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img2.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img3.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img4.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img5.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img6.jpg" alt="favorite photo!!" /></li>
+      <li class=""><img src="assets/img/img7.jpg" alt="favorite photo!!" /></li>
+    </ul>
   </body>
+  <style>
+    ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+    li {
+      list-style-type: none;
+    }
+    li img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
 </html>
