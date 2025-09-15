@@ -5,32 +5,246 @@
     <title>Cloudflare Pages Test</title>
   </head>
   <body>
-    <h1>Hello Cloudflare Pages!</h1>
-    <p>Welcome!!</p>
-    <ul class="">
-      <li class=""><img src="assets/img/img1.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img2.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img3.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img4.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img5.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img6.jpg" alt="favorite photo!!" /></li>
-      <li class=""><img src="assets/img/img7.jpg" alt="favorite photo!!" /></li>
+    <!-- ローディングアニメーション -->
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+    <!-- ローディングアニメーション -->
+    <section class="mv">
+      <video
+        class="video"
+        src="assets/video/mv-videw.mp4"
+        loop
+        muted
+        autoplay
+        playsinline
+      ></video>
+      <div class="inner">
+        <h1 class="ttl">Hello Cloudflare Pages!</h1>
+        <p class="sub-ttl">Test New System</p>
+      </div>
+    </section>
+    <ul class="imgList">
+      <li class="item">
+        <img
+          src="/cdn-cgi/image/format=auto,https://cnsa.uk/assets/img/img1.jpg"
+          alt="favorite photo!!"
+        />
+      </li>
+      <li class="item">
+        <img src="assets/img/img2.jpg" alt="favorite photo!!" />
+      </li>
+      <li class="item">
+        <img src="assets/img/img3.jpg" alt="favorite photo!!" />
+      </li>
+      <li class="item">
+        <img src="assets/img/img4.jpg" alt="favorite photo!!" />
+      </li>
+      <li class="item">
+        <img src="assets/img/img5.jpg" alt="favorite photo!!" />
+      </li>
+      <li class="item">
+        <img src="assets/img/img6.jpg" alt="favorite photo!!" />
+      </li>
+      <li class="item">
+        <img src="assets/img/img7.jpg" alt="favorite photo!!" />
+      </li>
     </ul>
   </body>
   <style>
-    ul {
+    /*** The new CSS reset - version 1.11.3 (last updated 25.8.2024) ***/
+    *:where(
+        :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+      ) {
+      all: unset;
+      display: revert;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+    a,
+    button {
+      cursor: revert;
+    }
+    ol,
+    ul,
+    menu,
+    summary {
+      list-style: none;
+    }
+    ol {
+      counter-reset: revert;
+    }
+    img {
+      max-inline-size: 100%;
+      max-block-size: 100%;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    input,
+    textarea {
+      -webkit-user-select: auto;
+    }
+    textarea {
+      white-space: revert;
+    }
+    meter {
+      -webkit-appearance: revert;
+      appearance: revert;
+    }
+    :where(pre) {
+      all: revert;
+      box-sizing: border-box;
+    }
+    ::placeholder {
+      color: unset;
+    }
+    :where([hidden]) {
+      display: none;
+    }
+    :where([contenteditable]:not([contenteditable="false"])) {
+      -moz-user-modify: read-write;
+      -webkit-user-modify: read-write;
+      overflow-wrap: break-word;
+      -webkit-line-break: after-white-space;
+      -webkit-user-select: auto;
+    }
+    :where([draggable="true"]) {
+      -webkit-user-drag: element;
+    }
+    :where(dialog:modal) {
+      all: revert;
+      box-sizing: border-box;
+    }
+    ::-webkit-details-marker {
+      display: none;
+    }
+    /* CSS
+      ----------------------------------------------------------------------------------- */
+    html {
+      font-size: 62.5%;
+    }
+    .loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+    #loading {
+      width: 100vw;
+      height: 100vh;
+      transition: all 1s;
+      background-color: #343434;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .spinner {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+      background-color: #fff;
+      border-radius: 100%;
+      animation: sk-scaleout 1s infinite ease-in-out;
+    }
+    /* ローディングアニメーション */
+    @keyframes sk-scaleout {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+    .mv {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 9rem);
+      .video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(#000 1px, transparent 1px);
+        background-size: 3px 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    .mv .inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .ttl,
+      .sub-ttl {
+        color: #fff;
+        font-size: 4.8rem;
+        text-align: center;
+      }
+    }
+    .imgList {
+      margin-top: 4rem;
+      padding: 0 2rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto;
-      gap: 10px;
-    }
-    li {
-      list-style-type: none;
-    }
-    li img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
+      gap: 1rem;
+      .item {
+        height: 30rem;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
     }
   </style>
+  <!-- <script>
+    window.onload = function () {
+      const spinner = document.getElementById("loading");
+      spinner.classList.add("loaded");
+    };
+  </script> -->
+  <script>
+    const t = performance.now();
+    addEventListener("load", () =>
+      setTimeout(
+        () => document.getElementById("loading")?.classList.add("loaded"),
+        Math.max(0, 2000 - (performance.now() - t))
+      )
+    );
+    // const first = !localStorage.getItem("visited");
+    // const hide = () =>
+    //   document.getElementById("loading")?.classList.add("loaded");
+
+    // if (first) {
+    //   const t = performance.now();
+    //   addEventListener("load", () => {
+    //     setTimeout(hide, Math.max(0, 3000 - (performance.now() - t)));
+    //     localStorage.setItem("visited", "1"); // 次回以降は初回扱いしない
+    //   });
+    // } else {
+    //   // 2回目以降はできるだけ早く非表示
+    //   document.readyState === "loading"
+    //     ? addEventListener("DOMContentLoaded", hide)
+    //     : hide();
+    // }
+  </script>
 </html>
