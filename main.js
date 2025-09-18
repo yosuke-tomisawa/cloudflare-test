@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
   gsap.registerPlugin(ScrollTrigger);
-
-  gsap.to(".panel", {
-    opacity: 1,
+  gsap.to(".box", {
+    x: 1000,
+    rotate: "90",
+    opacity: 0,
+    // duration: 2,
     scrollTrigger: {
-      trigger: ".panel",
-      start: "top 80%",
-      end: "bottom 20%",
+      trigger: ".mv",
+      start: "top 0%",
+      end: "bottom 50%",
       scrub: true,
       markers: true, // ← これでSTART/ENDが表示される
     },
   });
-});
+})();
+
 (() => {
   const mv = document.querySelector(".mv");
   if (!mv) return;
